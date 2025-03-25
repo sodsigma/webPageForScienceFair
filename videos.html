@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos and Clips - Science Fair 2025</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+            max-width: 900px;
+            margin-top: 60px;
+        }
+        .hero {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="hero">
+            <h1>🎥 Videos and Clips</h1>
+            <p>Watch the videos and highlights from the Science Fair.</p>
+        </div>
+        <div class="card">
+            <h3>Event Highlights</h3>
+            <video width="320" height="240" controls>
+                <source src="iwilladditwhenitshere.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Video isn't produced yet.</p>
+        </div>
+        <div class="card">
+            <h3>Interviews with Participants</h3>
+            <video width="320" height="240" controls>
+                <source src="thiscodeisbysoda.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>The video isn't produced yet.</p>
+        </div>
+    </div>
+</body>
+</html>

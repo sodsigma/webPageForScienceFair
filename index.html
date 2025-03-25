@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Fair 2025 & Science Week</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            margin: 0;
+            display: flex;
+            overflow-x: hidden;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            left: -250px;
+            top: 0;
+            background: #1d3557;
+            padding-top: 60px;
+            transition: left 0.4s ease-in-out;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: background 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+        .sidebar a:hover {
+            background: #457b9d;
+            transform: translateX(10px);
+        }
+        .open-btn {
+            font-size: 20px;
+            cursor: pointer;
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            transition: transform 0.3s;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .open-btn:hover {
+            background: #ff4757;
+            transform: scale(1.1);
+        }
+        .content {
+            padding: 20px;
+            flex-grow: 1;
+            transition: margin-left 0.4s ease-in-out;
+            max-width: 900px;
+            margin-left: 0;
+        }
+        .sidebar-open .content {
+            margin-left: 250px;
+        }
+        .logo {
+            width: 120px;
+            height: auto;
+            margin: 20px;
+        }
+        .hero {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        section {
+            padding: 20px;
+            margin: 40px 0;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <button class="open-btn" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="sidebar" id="sidebar">
+        <a href="videos.html">🎥 Videos and Clips</a>
+        <a href="schedule.html">📅 Schedule</a>
+        <a href="contact.html">📞 Contact</a>
+    </div>
+    
+    <div class="content" id="content">
+        <img class="logo" src="https://cloud-3.edupage.org/cloud?z%3AsttJBF%2FjUvktaq5FP%2BW6b95nXKkRANFhkBfP7tj%2BnbSa6Y9%2BGE5y4%2B3mkkPhFjLYaPZm3F023zmavLyjakiBUg%3D%3D" alt="School Logo">
+        <div class="hero">
+            <h1>Science Fair 2025 & Science Week</h1>
+            <h2>Empathy School, Ulaanbaatar</h2>
+            <p><strong>Date:</strong> March 31 - April 4, 2025</p>
+        </div>
+        
+        <!-- Countdown Section -->
+        <div class="countdown" id="countdown"></div>
+
+        <section>
+            <h3>🎥 Videos and Clips</h3>
+            <p>Check out highlights from previous events.</p>
+        </section>
+        <section>
+            <h3>📅 Event Schedule</h3>
+            <p>Find all the activities planned for Science Week.</p>
+        </section>
+        <section>
+            <h3>📞 Contact</h3>
+            <p>Email: <a href="mailto:info.ub@empathy.edu.mn">info.ub@empathy.edu.mn</a></p>
+            <p>Phone: <a href="tel:+97611462610">+976 11462610</a></p>
+        </section>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var content = document.getElementById("content");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+                content.classList.add("sidebar-open");
+            } else {
+                sidebar.style.left = "-250px";
+                content.classList.remove("sidebar-open");
+            }
+        }
+
+        // Countdown Timer
+        function updateCountdown() {
+            var eventDate = new Date("March 31, 2025 00:00:00").getTime();
+            var now = new Date().getTime();
+            var distance = eventDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            var countdownElement = document.getElementById("countdown");
+            countdownElement.innerHTML = "Time until Science Fair: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                countdownElement.innerHTML = "The Science Fair has started!";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
